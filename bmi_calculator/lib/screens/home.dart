@@ -33,7 +33,31 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return Scaffold(
+                      backgroundColor: Colors.transparent,
+                      appBar: AppBar(
+                        title: const Text("Settings"),
+                        backgroundColor: accentHexColor,
+                      ),
+                      body: Center(
+                        child: Text(
+                          "Nothing here",
+                          style: TextStyle(
+                            color: accentHexColor,
+                            fontSize: 26,
+                            fontWeight: FontWeight.w300,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              );
+            },
             icon: Icon(
               Icons.settings,
               color: accentHexColor,
@@ -62,9 +86,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: accentHexColor),
                     keyboardType: TextInputType.number,
                     decoration: const InputDecoration(
-                      hintText: "Height",
+                      hintText: "Height(cm)",
                       hintStyle: TextStyle(
-                        fontSize: 42,
+                        fontSize: 26,
                         fontWeight: FontWeight.w300,
                         color: Colors.white70,
                       ),
@@ -81,9 +105,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: accentHexColor),
                     keyboardType: TextInputType.number,
                     decoration: const InputDecoration(
-                      hintText: "Weight",
+                      hintText: "Weight(kg)",
                       hintStyle: TextStyle(
-                        fontSize: 42,
+                        fontSize: 26,
                         fontWeight: FontWeight.w300,
                         color: Colors.white70,
                       ),
@@ -98,10 +122,26 @@ class _HomeScreenState extends State<HomeScreen> {
             GestureDetector(
               onTap: () {
                 debugPrint("Clicked!");
-                double _height = double.parse(_heightController.text) / 100;
-                double _weight = double.parse(_weightController.text);
+                double height;
+                double weight;
+                //clear old result
+                _resultStr = "";
+                _resultNum = 0;
+                try {
+                  height = double.parse(_heightController.text) / 100;
+                  weight = double.parse(_weightController.text);
+                } catch (e) {
+                  //clear old result
+                  setState(() {
+                    _resultStr = "";
+                    _resultNum = 0;
+                  });
+                  return;
+                }
+                //show result
                 setState(() {
-                  _resultNum = _weight / (_height * _height);
+                  FocusManager.instance.primaryFocus?.unfocus();
+                  _resultNum = weight / (height * height);
                   if (_resultNum > 25) {
                     _resultStr = "Obese";
                     _resultColor = Colors.red;
@@ -128,13 +168,11 @@ class _HomeScreenState extends State<HomeScreen> {
             //output nb//
             Visibility(
               visible: _resultStr.isNotEmpty,
-              child: Container(
-                child: Text(
-                  _resultNum.toStringAsFixed(2),
-                  style: TextStyle(
-                    fontSize: 40,
-                    color: _resultColor,
-                  ),
+              child: Text(
+                _resultNum.toStringAsFixed(2),
+                style: TextStyle(
+                  fontSize: 40,
+                  color: _resultColor,
                 ),
               ),
             ),
@@ -142,13 +180,11 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 30,
             ),
             //output msg//
-            Container(
-              child: Text(
-                _resultStr,
-                style: TextStyle(
-                  fontSize: 32,
-                  color: _resultColor,
-                ),
+            Text(
+              _resultStr,
+              style: TextStyle(
+                fontSize: 32,
+                color: _resultColor,
               ),
             ),
             //just decorations//
