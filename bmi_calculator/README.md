@@ -2,13 +2,7 @@
 
 ## Screenshots:
 
-![image](https://github.com/Abdelrahman-tlayjeh/basic-flutter-apps/blob/main/bmi_calculator/imgs/bmi_1.jpeg))
-<hr>
-
-![image](https://github.com/Abdelrahman-tlayjeh/basic-flutter-apps/blob/main/bmi_calculator/imgs/bmi_2.jpeg)
-<hr>
-
-![image](https://github.com/Abdelrahman-tlayjeh/basic-flutter-apps/blob/main/bmi_calculator/imgs/bmi_3.jpeg)
-<hr>
-
-![image](https://github.com/Abdelrahman-tlayjeh/basic-flutter-apps/blob/main/bmi_calculator/imgs/bmi_4.jpeg)
+<img src="imgs/bmi_1.jpeg" width="280" height="495" display="inline"> 
+<img src="imgs/bmi_2.jpeg" width="280" height="495" display="inline"> 
+<img src="imgs/bmi_3.jpeg" width="280" height="495" display="inline"> 
+<img src="imgs/bmi_4.jpeg" width="280" height="495" display="inline"> 
