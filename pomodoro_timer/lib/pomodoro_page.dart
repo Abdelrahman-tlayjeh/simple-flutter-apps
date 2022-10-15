@@ -36,10 +36,10 @@ class _PmodoroPageState extends State<PmodoroPage> {
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         running = true;
-        //when duration is over
+        //if no time remaining
         if (seconds == 0 && minutes == 0) {
-          if (status == "Focus") return _endSession();
-          return _endBreak();
+          if (status == "Focus") return _setBreak();
+          return _setFocus();
         }
         //time handling
         if (seconds > 0) {
@@ -75,7 +75,7 @@ class _PmodoroPageState extends State<PmodoroPage> {
     });
   }
 
-  void _endSession() {
+  void _setBreak() {
     //set the break
     setState(() {
       totalSessions++;
@@ -95,10 +95,10 @@ class _PmodoroPageState extends State<PmodoroPage> {
     });
   }
 
-  void _endBreak() {
+  void _setFocus() {
     //set focus time
     setState(() {
-      minutes = SESSION_COUNT_TILL_LONG_BREAK;
+      minutes = SESSION_DURATION;
       seconds = 0;
       status = "Focus";
       _pause();
