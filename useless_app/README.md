@@ -1,4 +1,4 @@
-# \#2 Flutter project | Dummy Data App
+# \#3 Flutter project | Dummy Data App
 
 <h2>Useless app. Just fetch a fake API.</h2>
 <h3>Used API: <a href="https://jsonplaceholder.typicode.com/">JSONPlaceholder</a></h3>
