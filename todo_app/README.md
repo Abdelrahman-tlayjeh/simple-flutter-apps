@@ -6,9 +6,9 @@
 ## Screenshots:
 
 <p float="left">
-    <img src="imgs/todo_1.png" width="280" height="520"> 
-    <img src="imgs/todo_2.jpeg" width="280" height="520"> 
-    <img src="imgs/todo_3.png" width="280" height="520"> 
-    <img src="imgs/todo_4.jpeg" width="280" height="520"> 
-    <img src="imgs/todo_5.jpeg" width="280" height="520"> 
+    <img src="imgs/todo_1.png" width="280" height="495"> 
+    <img src="imgs/todo_2.jpeg" width="280" height="495"> 
+    <img src="imgs/todo_3.png" width="280" height="495"> 
+    <img src="imgs/todo_4.jpeg" width="280" height="495"> 
+    <img src="imgs/todo_5.jpeg" width="280" height="495"> 
 </p>
