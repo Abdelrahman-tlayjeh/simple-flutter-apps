@@ -1,4 +1,4 @@
-# \#1 Flutter project | Pomodoro Timer
+# \#2 Flutter project | Pomodoro Timer
 
 <h2>
 Simple, fully functional Pomodoro timer app.</h2>
