@@ -48,10 +48,16 @@ class TasksProvider with ChangeNotifier {
     saveTasks();
   }
 
-  void saveTasks() async {
+  void saveTasks() {
     String encodedData =
-        json.encode(_tasks.map((task) => task.toMap()).toList());
+        json.encode((_tasks + _history).map((task) => task.toMap()).toList());
     _tasksBox.put("tasks", encodedData);
+  }
+
+  void clearHistory() {
+    _history = [];
+    notifyListeners();
+    saveTasks();
   }
 
   List<Task> loadDataFromBox() {

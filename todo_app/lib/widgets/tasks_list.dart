@@ -12,35 +12,31 @@ class TasksList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Task> tasks = context.watch<TasksProvider>().tasks;
-    return Consumer(
-      builder: (BuildContext context, value, Widget? child) {
-        return Expanded(
-          child: Container(
-            margin: const EdgeInsets.only(
-              top: 15,
-            ),
-            decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 52, 79, 161),
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: ListView.builder(
-              itemCount: tasks.length,
-              itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    TaskRow(
-                      taskId: index,
-                    ),
-                    const Divider(
-                      color: Colors.white,
-                    ),
-                  ],
-                );
-              },
-            ),
-          ),
-        );
-      },
+    return Expanded(
+      child: Container(
+        margin: const EdgeInsets.only(
+          top: 15,
+        ),
+        decoration: BoxDecoration(
+          color: const Color.fromARGB(255, 52, 79, 161),
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: ListView.builder(
+          itemCount: tasks.length,
+          itemBuilder: (context, index) {
+            return Column(
+              children: [
+                TaskRow(
+                  taskId: index,
+                ),
+                const Divider(
+                  color: Colors.white,
+                ),
+              ],
+            );
+          },
+        ),
+      ),
     );
   }
 }

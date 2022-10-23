@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/screens/add_screen.dart';
+import 'package:todo_app/screens/history_screen.dart';
 import '../widgets/tasks_list.dart';
 import '../widgets/top_bar.dart';
 
@@ -16,7 +17,17 @@ class MainScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
-              context: context, builder: (context) => const AddScreen());
+            isScrollControlled: true,
+            context: context,
+            builder: (context) => SingleChildScrollView(
+              child: Container(
+                padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).viewInsets.bottom,
+                ),
+                child: const AddScreen(),
+              ),
+            ),
+          );
         },
         backgroundColor: const Color.fromARGB(255, 211, 80, 4),
         child: const Icon(
@@ -43,7 +54,12 @@ class MainScreen extends StatelessWidget {
         actions: [
           //history button
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const HistoryScreen()));
+            },
             icon: const Icon(
               Icons.restore_outlined,
               size: 40,
@@ -53,7 +69,7 @@ class MainScreen extends StatelessWidget {
 
           //horizontal spacing
           const SizedBox(
-            width: 15,
+            width: 5,
           ),
         ],
       ),
