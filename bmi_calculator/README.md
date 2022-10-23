@@ -1,4 +1,4 @@
-# \#0 Flutter project | BMI Calculator
+# \#1 Flutter project | BMI Calculator
 
 <h2>
 Simple app with a modern UI for calculating BMI and IBW.</h2>
