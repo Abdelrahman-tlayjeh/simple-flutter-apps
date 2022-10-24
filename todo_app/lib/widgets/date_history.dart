@@ -18,9 +18,10 @@ class DateHistory extends StatelessWidget {
           Text(
             date,
             style: const TextStyle(
-              fontSize: 32,
+              fontSize: 28,
               color: Colors.white,
               fontWeight: FontWeight.bold,
+              decoration: TextDecoration.underline,
             ),
           ),
           Column(

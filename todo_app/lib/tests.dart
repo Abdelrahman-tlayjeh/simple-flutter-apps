@@ -1,5 +1,4 @@
 import 'models/task.dart';
-import 'dart:convert';
 
 class TestData {
   List<Map<String, dynamic>> data = [
@@ -56,7 +55,6 @@ class TestData {
   ];
 
   List<Task> getDummyTasks() {
-    return List<Task>.from(
-        json.decode(json.encode(data)).map((taskMap) => Task.fromMap(taskMap)));
+    return List<Task>.from(data.map((taskMap) => Task.fromMap(taskMap)));
   }
 }

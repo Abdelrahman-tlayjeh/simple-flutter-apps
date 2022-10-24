@@ -35,7 +35,7 @@ class TaskRow extends StatelessWidget {
       ),
       trailing: Checkbox(
         value: task.isDone,
-        onChanged: (newValue) {
+        onChanged: (_) {
           context.read<TasksProvider>().toggleDoneState(taskId);
         },
       ),
